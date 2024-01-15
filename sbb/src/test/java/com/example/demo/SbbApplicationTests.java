@@ -9,6 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.example.demo.Repository.QuestionRepository;
 import com.example.demo.entity.Question;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
 @SpringBootTest
 class SbbApplicationTests {
 	
@@ -19,13 +23,13 @@ class SbbApplicationTests {
 		Question q1 = new Question();
 		q1.setSubject("sbb가 무엇인가요?");
 		q1.setContent("sbb에 대해서 알고 싶습니다.?");
-		q1.setCreateData(LocalDateTime.now());
+		q1.setCreateDate(LocalDateTime.now());
 		this.questionRepository.save(q1);
 		
 		Question q2 = new Question();
 		q2.setSubject("ㄲ억");
 		q2.setContent("냠");
-		q2.setCreateData(LocalDateTime.now());
+		q2.setCreateDate(LocalDateTime.now());
 		this.questionRepository.save(q2);
 	}
 

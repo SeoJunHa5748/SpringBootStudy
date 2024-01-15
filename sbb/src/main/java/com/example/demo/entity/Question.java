@@ -1,12 +1,14 @@
 package com.example.demo.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +28,10 @@ public class Question {
 	private String content;
 	
 	@Column(name = "date_")
-	private LocalDateTime createData;
+	private LocalDateTime createDate;
+	
+	@OneToMany(mappedBy = "question")
+	private List<Answer> answerList;
 
 	
 
