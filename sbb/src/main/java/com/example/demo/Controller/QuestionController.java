@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +25,11 @@ public class QuestionController {
 	private final QuestionService questionService;
 	
 	@GetMapping("/list")
-	  public String list(Model model) {
+	  public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
         
-        model.addAttribute("questionList", questionService.getAllQustion());
+	    Page<Question> paging = this.questionService.getAllQustion(page);
+        model.addAttribute("paging", paging);
+        
         return "question_list";
     }
 	

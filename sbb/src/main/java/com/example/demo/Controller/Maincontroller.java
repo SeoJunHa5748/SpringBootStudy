@@ -9,9 +9,8 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class Maincontroller {
 
-	@GetMapping("/")
-	
+	@GetMapping("/")	
 	public String root() {
-		return "Mainpage";
+		return "redirect:/question/list";
 	}
 }
